@@ -192,121 +192,126 @@ function initAnimations() {
         observer.observe(el);
     });
 }
-// Эффект параллакса для элементов
+// Оптимизированный параллакс-эффект с ограничением частоты вызовов
 function initParallaxEffects() {
+    // Используем throttle для ограничения количества вызовов функции
+    let lastScrollTime = 0;
+    const scrollThreshold = 50; // мс между вызовами
+
     window.addEventListener('scroll', function() {
+        const now = Date.now();
+        if (now - lastScrollTime < scrollThreshold) return;
+        lastScrollTime = now;
+        
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Параллакс для фоновых элементов в hero секции
-        document.querySelectorAll('.hero:before, .hero:after').forEach(element => {
-            const speed = element.classList.contains('hero:before') ? 0.2 : 0.4;
-            const yPos = -(scrollTop * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-        
-        // Параллакс для изображений и карточек
-        document.querySelectorAll('.hero-image, .feature-card').forEach((element, index) => {
-            const rect = element.getBoundingClientRect();
-            const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-            
-            if (rect.top < viewHeight && rect.bottom > 0) {
-                const scrollSpeed = 0.1 + (index * 0.02);
-                const yPos = (scrollTop - rect.top) * scrollSpeed;
-                element.style.transform = `translateY(${yPos}px)`;
-            }
-        });
-    });
+        // Ограничиваем выборку элементов
+        const heroElements = document.querySelectorAll('.hero-image, .feature-card');
+        if (heroElements.length > 0) {
+            heroElements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                const viewHeight = window.innerHeight;
+                
+                if (rect.top < viewHeight && rect.bottom > 0) {
+                    const scrollSpeed = 0.05; // Снижаем величину эффекта
+                    const yPos = (scrollTop - rect.top) * scrollSpeed;
+                    element.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        }
+    }, { passive: true }); // passive для улучшения производительности
 }
 
-// Анимация появления элементов при скролле
+// Оптимизированная анимация появления с использованием IntersectionObserver
 function initFadeInElements() {
     // Добавляем класс fade-in ко всем основным элементам
-    const elements = document.querySelectorAll('.section-header, .feature-card, .info-item, .tokenomics-item, .step-card, .community-card');
+    const elements = document.querySelectorAll('.section-header, .feature-card, .info-item, .tokenomics-item, .step-card');
     elements.forEach(element => {
         element.classList.add('fade-in');
     });
     
-    // Функция проверки видимости элементов
-    function checkVisibility() {
-        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-        const elements = document.querySelectorAll('.fade-in');
-        
-        elements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementTop = rect.top;
-            const elementVisible = 150;
-            
-            if (elementTop < viewHeight - elementVisible) {
-                element.classList.add('visible');
-            } else {
-                element.classList.remove('visible');
+    // Используем IntersectionObserver вместо scroll event для лучшей производительности
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Отключаем наблюдение после появления
+                observer.unobserve(entry.target);
             }
         });
-    }
+    }, { threshold: 0.1 });
     
-    // Проверяем при загрузке и скролле
-    window.addEventListener('load', checkVisibility);
-    window.addEventListener('scroll', checkVisibility);
-}
-
-// 3D эффект наклона для карточек при наведении
-function initCardTiltEffect() {
-    const cards = document.querySelectorAll('.feature-card, .info-item, .metric-card, .hero-feature-item');
-    
-    cards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const xc = rect.width / 2;
-            const yc = rect.height / 2;
-            
-            const dx = x - xc;
-            const dy = y - yc;
-            
-            // Ограничиваем угол наклона до 10 градусов
-            const tiltX = dy / yc * 10;
-            const tiltY = -(dx / xc * 10);
-            
-            this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.03)`;
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        });
+    // Наблюдаем за элементами
+    elements.forEach(element => {
+        observer.observe(element);
     });
 }
 
-// Обновление цены (имитация динамических данных)
+// Оптимизированный эффект наклона, только для устройств с мышью
+function initCardTiltEffect() {
+    // Проверяем, использует ли пользователь устройство с мышью
+    if (window.matchMedia("(pointer: fine)").matches) {
+        const cards = document.querySelectorAll('.feature-card, .info-item');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                // Используем requestAnimationFrame для оптимизации
+                requestAnimationFrame(() => {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+                    
+                    const dx = x - xc;
+                    const dy = y - yc;
+                    
+                    // Уменьшаем угол наклона для лучшей производительности
+                    const tiltX = dy / yc * 5;
+                    const tiltY = -(dx / xc * 5);
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+                });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                requestAnimationFrame(() => {
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        });
+    }
+}
+
+// Оптимизированное обновление цены
 function initLivePriceUpdates() {
-    if (!document.querySelector('.live-price')) return;
+    const priceElement = document.querySelector('.live-price');
+    if (!priceElement) return;
     
     const priceValue = document.querySelector('.price-value');
     const priceChange = document.querySelector('.price-change');
     
-    // Имитируем динамические обновления цены каждые 5 секунд
+    // Уменьшаем частоту обновлений до раза в 10 секунд
     setInterval(() => {
-        // Генерируем случайные изменения цены в диапазоне ±0.0003
-        const priceDelta = (Math.random() * 0.0006 - 0.0003).toFixed(6);
-        const currentPrice = parseFloat(priceValue.textContent.replace('$', ''));
-        const newPrice = (currentPrice + parseFloat(priceDelta)).toFixed(4);
-        
-        // Обновляем значение цены с анимацией
-        priceValue.textContent = `$${newPrice}`;
-        priceValue.classList.add('price-updated');
-        setTimeout(() => priceValue.classList.remove('price-updated'), 500);
-        
-        // Обновляем процент изменения
-        const changePercent = (priceDelta / currentPrice * 100).toFixed(2);
-        if (changePercent >= 0) {
-            priceChange.textContent = `+${changePercent}%`;
-            priceChange.classList.remove('down');
-            priceChange.classList.add('up');
-        } else {
-            priceChange.textContent = `${changePercent}%`;
-            priceChange.classList.remove('up');
-            priceChange.classList.add('down');
-        }
-    }, 5000);
+        requestAnimationFrame(() => {
+            // Упрощенная логика случайных изменений
+            const priceDelta = (Math.random() * 0.0004 - 0.0002).toFixed(6);
+            const currentPrice = parseFloat(priceValue.textContent.replace('$', ''));
+            const newPrice = (currentPrice + parseFloat(priceDelta)).toFixed(4);
+            
+            priceValue.textContent = `$${newPrice}`;
+            
+            const changePercent = (priceDelta / currentPrice * 100).toFixed(2);
+            if (changePercent >= 0) {
+                priceChange.textContent = `+${changePercent}%`;
+                priceChange.classList.remove('down');
+                priceChange.classList.add('up');
+            } else {
+                priceChange.textContent = `${changePercent}%`;
+                priceChange.classList.remove('up');
+                priceChange.classList.add('down');
+            }
+        });
+    }, 10000); // Обновляем раз в 10 секунд вместо 5
 }
