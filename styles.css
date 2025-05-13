@@ -2278,3 +2278,85 @@ body {
         gap: 15px;
     }
 }
+/* Стили для социальных ссылок */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0 40px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    background: rgba(30, 40, 70, 0.4);
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 229, 255, 0.1);
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.15);
+}
+
+.social-link i {
+    font-size: 22px;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-link span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Специфичные цвета для разных сетей */
+.social-link:nth-child(1) i { color: #0088cc; } /* Telegram */
+.social-link:nth-child(2) i { color: #1DA1F2; } /* Twitter */
+.social-link:nth-child(3) i { color: #7289DA; } /* Discord */
+.social-link:nth-child(4) i { color: #00ab6c; } /* Medium */
+
+/* Анимация пульсации для социальных ссылок */
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.2);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 229, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+    }
+}
+
+/* Применяем анимацию к одной из социальных ссылок для привлечения внимания */
+.social-link:first-child {
+    animation: pulse-border 2s infinite;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        padding: 10px 15px;
+    }
+    
+    .social-link i {
+        font-size: 18px;
+    }
+    
+    .social-link span {
+        font-size: 14px;
+    }
+}
