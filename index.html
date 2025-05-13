@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIN Token - Next Generation Cryptocurrency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="theme-color" content="#131B2E">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-pattern"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="contract-banner">
+        <div class="container">
+            <div class="contract-info">
+                <span class="contract-label">Contract Address:</span>
+                <span id="contract-address">0x16Ea2Ab5445bDbEA04EBEe64B1fB98701B43Da53</span>
+                <button id="copy-contract" class="copy-btn" title="Copy to clipboard">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <span id="copy-message" class="copy-message">Copied!</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">RIN Token</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#how-to-buy">How to Buy</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="https://pancakeswap.finance/swap" target="_blank" class="btn btn-primary">Buy Now</a>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="trading-patterns"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered <span class="highlight">Crypto Trading</span> Revolution</h1>
+                <p class="hero-subtitle">RIN Token powers an advanced auto-trading bot that analyzes crypto markets using artificial intelligence and over 400 technical indicators</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Cutting-edge machine learning algorithms</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real-time market analysis across 32 exchanges</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Microsecond trade execution & arbitrage</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Advanced risk management protocols</span>
+                    </div>
+                </div>
+                
+                <div class="live-price">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="price-label">Current Price:</span>
+                    <span class="price-value">$0.0072</span>
+                    <span class="price-change up">+12.4%</span>
+                </div>
+                
+                <div class="hero-metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">+83.7%</div>
+                        <div class="metric-label">Monthly ROI</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">437</div>
+                        <div class="metric-label">Trading Signals</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">25%</div>
+                        <div class="metric-label">NFT Profit Share</div>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#how-to-buy" class="btn btn-primary">Buy RIN Token</a>
+                    <a href="#trading-bot" class="btn btn-outline">Explore Bot Features</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">BSC</div>
+                        <div class="stat-label">Network</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">$0.0072</div>
+                        <div class="stat-label">Current Price</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">9.8/10</div>
+                        <div class="stat-label">Trading Score</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="rin-banner">
+                    <img src="images/bot/grafik5.webp" alt="RIN Trading Bot Interface" class="banner-img">
+                    <div class="live-indicator">
+                        <span class="pulse"></span>
+                        <span class="text">AI TRADING LIVE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About RIN Trading Bot</h2>
+                <p>Advanced AI-powered crypto auto-trading system with proprietary algorithms</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Market Analysis</h3>
+                    <p>Advanced artificial intelligence analyzes over 400 market factors in real-time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automated Trading</h3>
+                    <p>24/7 automated trading executes optimal trades based on predictive algorithms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>High-Frequency Execution</h3>
+                    <p>Microsecond trade execution with institutional-grade infrastructure</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>NFT Profit Sharing</h3>
+                    <p>RIN X NFT holders receive 25% of all service fees and trading profits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="tokenomics" class="section tokenomics-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tokenomics</h2>
+                <p>Strategic token allocation optimized for AI trading system development and sustainability</p>
+            </div>
+            <div class="tokenomics-content">
+                <div class="tokenomics-chart">
+                    <div class="chart-container">
+                        <img src="images/new/tokenomics.webp" alt="RIN Token Distribution" class="tokenomics-img">
+                    </div>
+                </div>
+                <div class="tokenomics-details">
+                    <div class="tokenomics-item">
+                        <div class="dot dot-1"></div>
+                        <div class="item-details">
+                            <h4>AI Development</h4>
+                            <p>35% - AI trading algorithm enhancement and infrastructure</p>
+                        </div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="dot dot-2"></div>
+                        <div class="item-details">
+                            <h4>Liquidity Pool</h4>
+                            <p>25% - Market liquidity and trading operations</p>
+                        </div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="dot dot-3"></div>
+                        <div class="item-details">
+                            <h4>NFT Rewards</h4>
+                            <p>15% - Profit sharing with RIN X NFT holders</p>
+                        </div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="dot dot-4"></div>
+                        <div class="item-details">
+                            <h4>Marketing</h4>
+                            <p>15% - Strategic partnerships and user acquisition</p>
+                        </div>
+                    </div>
+                    <div class="tokenomics-item">
+                        <div class="dot dot-5"></div>
+                        <div class="item-details">
+                            <h4>Team & Development</h4>
+                            <p>10% - Core team salaries and continuous improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="token-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4>Token Name</h4>
+                        <p>RIN Token</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4>Token Symbol</h4>
+                        <p>RIN</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4>Total Supply</h4>
+                        <p>1,000,000,000</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4>Blockchain</h4>
+                        <p>Binance Smart Chain</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="trading-bot" class="section trading-bot-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Trading Bot</h2>
+                <p>Experience the power of artificial intelligence in crypto trading</p>
+            </div>
+            <div class="bot-features">
+                <div class="bot-showcase">
+                    <img src="images/bot/grafik5.webp" alt="RIN Trading Bot Interface" class="bot-interface-img">
+                </div>
+                <div class="bot-feature-list">
+                    <div class="bot-feature-item">
+                        <div class="feature-number">01</div>
+                        <h3>Market Analysis</h3>
+                        <p>Our AI analyzes over 400 technical indicators, market sentiment, on-chain data, and social metrics in real-time</p>
+                    </div>
+                    <div class="bot-feature-item">
+                        <div class="feature-number">02</div>
+                        <h3>Risk Management</h3>
+                        <p>Sophisticated risk assessment algorithms dynamically adjust position sizes based on market volatility</p>
+                    </div>
+                    <div class="bot-feature-item">
+                        <div class="feature-number">03</div>
+                        <h3>Multi-Strategy Approach</h3>
+                        <p>Combines multiple trading strategies from scalping to swing trading that adapt to market conditions</p>
+                    </div>
+                    <div class="bot-feature-item">
+                        <div class="feature-number">04</div>
+                        <h3>Performance Tracking</h3>
+                        <p>Transparent reporting with detailed analytics on trading performance and historical results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="section roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Roadmap</h2>
+                <p>Our journey towards building a thriving AI trading ecosystem</p>
+            </div>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <h3>Q3 2025</h3>
+                        <h4>Growth Phase</h4>
+                        <ul>
+                            <li>Marketing campaign</li>
+                            <li>Exchange listings</li>
+                            <li>Partnerships announcement</li>
+                            <li>Ecosystem expansion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <h3>Q4 2025</h3>
+                        <h4>Development Phase</h4>
+                        <ul>
+                            <li>Advanced trading features</li>
+                            <li>Mobile app development</li>
+                            <li>Additional market integrations</li>
+                            <li>Governance mechanism</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <h3>Q1 2026</h3>
+                        <h4>Expansion Phase</h4>
+                        <ul>
+                            <li>Cross-chain compatibility</li>
+                            <li>DeFi product suite</li>
+                            <li>Global marketing push</li>
+                            <li>Enterprise partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-buy" class="section how-to-buy-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Buy RIN Token</h2>
+                <p>Join the AI trading revolution in a few simple steps</p>
+            </div>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Create a Wallet</h3>
+                    <p>Download and setup MetaMask or Trust Wallet to store your RIN tokens</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Buy BNB</h3>
+                    <p>Purchase BNB from any exchange and transfer to your wallet</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Connect to PancakeSwap</h3>
+                    <p>Visit PancakeSwap and connect your wallet to the platform</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Swap BNB for RIN</h3>
+                    <p>Enter our contract address and swap your BNB for RIN tokens</p>
+                </div>
+            </div>
+            <div class="buy-cta">
+                <a href="https://pancakeswap.finance/swap" target="_blank" class="btn btn-primary btn-lg">Buy on PancakeSwap</a>
+                <p class="copy-address">
+                    <span id="contract-text">0x16Ea2Ab5445bDbEA04EBEe64B1fB98701B43Da53</span>
+                    <button id="copy-address" class="btn-copy">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section community-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join Our Community</h2>
+                <p>Be part of the RIN Token ecosystem and stay updated</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-medium"></i>
+                    <span>Medium</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <div class="container cta-container">
+            <h2 class="cta-title">Ready to Revolutionize Your Crypto Trading?</h2>
+            <p class="cta-description">Join thousands of traders who are already leveraging the power of artificial intelligence to maximize their crypto profits with RIN Token's cutting-edge technology.</p>
+            <div class="cta-buttons">
+                <a href="#how-to-buy" class="btn-glow">Get Started Now</a>
+                <a href="#trading-bot" class="btn-glow btn-glow-outline">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <span class="logo-icon">R</span>
+                    <span class="logo-text">RIN Token</span>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-column">
+                        <h4>RIN Token</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#tokenomics">Tokenomics</a></li>
+                            <li><a href="#roadmap">Roadmap</a></li>
+                            <li><a href="#how-to-buy">How to Buy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Whitepaper</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Risk Disclosure</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RIN Token. All rights reserved.</p>
+                <p class="disclaimer">Trading cryptocurrencies involves risk. Please do your own research before investing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Оверлей для затемнения при прокрутке -->
+    <div class="section-overlay"></div>
+    
+    <!-- Кастомные элементы курсора -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <div id="whitepaper-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>RIN Token Whitepaper</h2>
+            <p>Coming soon! Our detailed whitepaper is currently under development.</p>
+            <p>Subscribe to our newsletter to get notified when it's ready:</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

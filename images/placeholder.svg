@@ -1,0 +1,31 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .coin { filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5)); }
+    .coin-front { fill: url(#coin-gradient); }
+    .coin-side { fill: url(#side-gradient); }
+    .letter { fill: white; font-family: Arial; font-weight: bold; font-size: 120px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .floating { animation: float 6s ease-in-out infinite; }
+  </style>
+  <defs>
+    <linearGradient id="coin-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6c63ff" />
+      <stop offset="100%" stop-color="#43cea2" />
+    </linearGradient>
+    <linearGradient id="side-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a52cc" />
+      <stop offset="100%" stop-color="#38a989" />
+    </linearGradient>
+  </defs>
+  <g class="coin floating" transform="translate(200, 200)">
+    <!-- Боковая сторона монеты (эффект 3D) -->
+    <ellipse class="coin-side" cx="0" cy="0" rx="150" ry="40" />
+    <!-- Передняя сторона монеты -->
+    <circle class="coin-front" cx="0" cy="-15" r="150" />
+    <!-- Буква R на монете -->
+    <text class="letter" x="-40" y="35" text-anchor="middle">R</text>
+  </g>
+</svg>
